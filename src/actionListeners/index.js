@@ -1,13 +1,13 @@
 const todoActionListeners = require('./todoActionListeners');
 
 const actionListenersMap = {
-    ...todoActionListeners,
+	...todoActionListeners,
 }
 
 
-const mapToActionListener = (request) => {
-    const { type } = request;
-    return actionListenersMap[type](request);
+const addRequestListeners = (database) => (request) => {
+	const { type } = request;
+	return actionListenersMap[type](request, database);
 }
 
-module.exports = mapToActionListener;
+module.exports = addRequestListeners;

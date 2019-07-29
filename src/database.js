@@ -9,12 +9,4 @@ admin.initializeApp({
 
 const database = admin.database();
 
-
-const ref = database.ref("/todos/");
-ref.once("value", function(snapshot) {
-    console.log(snapshot.val());
-});
-
-
-
 module.exports = database;
