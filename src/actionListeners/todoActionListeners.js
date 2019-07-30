@@ -1,12 +1,13 @@
 const addTodo = (request, database) => {
-	const { todo, index } = request;
+	const { todo } = request;
 	const newPostRef = database.ref('/todos/').push();
 	return newPostRef.set(todo);
 }
 
 
-const deleteTodo = (request) => {
-	console.log('deleteTodo', request);
+const deleteTodo = (request, database) => {
+	const { id } = request;
+	return database.ref(`/todos/${id}`).remove();
 }
 
 

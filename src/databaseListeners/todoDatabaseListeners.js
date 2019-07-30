@@ -1,8 +1,8 @@
 const todoAdded = (socketMessageHandler, database) => {
-	database.ref("/todos").on("child_added", snap => {
+	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
 		const val = snap.val();
-		socketMessageHandler({
+		return socketMessageHandler({
 			type: 'addTodo',
 			val,
 			key,
@@ -11,8 +11,14 @@ const todoAdded = (socketMessageHandler, database) => {
 }
 
 
-const todoDeleted = (database) => {
-	console.log('deleteTodo');
+const todoDeleted = (socketMessageHandler, database) => {
+	return database.ref("/todos").on("child_removed", snap => {
+		const key = snap.key;
+		return socketMessageHandler({
+			type: 'deleteTodo',
+			key,
+		});
+	})
 }
 
 
