@@ -5,6 +5,8 @@ const database = require('./database');
 const socketSetup = require('./socketSetup');
 const port = 3000;
 
+console.log('test webhook');
+
 socketSetup(server, database);
 
 server.listen(port, (err) => {
