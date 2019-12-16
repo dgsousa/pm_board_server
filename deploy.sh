@@ -4,13 +4,13 @@ echo 'compressing build into tar file...'
 tar czf pm_board_server.tar.gz src yarn.lock package.json
 
 echo 'copying tarball into remote server...'
-scp pm_board_server.tar.gz danielmooncloud.com:~
+scp pm_board_server.tar.gz dsousa@danielmooncloud.com:~
 
 echo 'removing tarball'
 rm pm_board_server.tar.gz
 
 echo 'entering remote server...'
-ssh danielmooncloud.com << 'ENDSSH'
+ssh dsousa@danielmooncloud.com << 'ENDSSH'
 pm2 stop pm_board_server
 rm -rf pm_board_server
 mkdir pm_board_server
