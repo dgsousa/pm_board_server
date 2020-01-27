@@ -10,4 +10,6 @@ socketSetup(server, database);
 server.listen(port, (err) => {
 	if(err) console.log('server error', err);
 	console.log("app is listening on port 3000");
-})
+});
+
+// test
