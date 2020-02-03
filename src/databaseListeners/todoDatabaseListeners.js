@@ -7,7 +7,7 @@ const { promisify } = require('util');
 const timeStarted = (new Date()).toString();
 
 
-const todoAdded = (socketMessageHandler, database, gitCommit) => {
+const todoAdded = (socketMessageHandler, database) => {
 	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
 		const val = snap.val();
@@ -18,7 +18,6 @@ const todoAdded = (socketMessageHandler, database, gitCommit) => {
 				ip: ${ip.address()}
 				version: ${version}
 				running since: ${timeStarted}
-				commit: ${gitCommit}
 			`,
 			key,
 		});

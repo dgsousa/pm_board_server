@@ -9,7 +9,7 @@ console.log(gitCommit);
 const socketSetup = (server, database) => {
     const io = socketServer(server);
     io.on('connection', (socket) => {
-        addDatabaseListeners(socket, database, gitCommit);
+        addDatabaseListeners(socket, database);
         socket.on("request", addRequestListeners(database));
         console.log('socket io has now been connected');
     })
