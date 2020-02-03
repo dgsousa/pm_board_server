@@ -1,5 +1,5 @@
 const os = require('os');
-const ip = require('ip');
+// const ip = require('ip');
 
 const todoAdded = (socketMessageHandler, database) => {
 	return database.ref("/todos").on("child_added", snap => {
