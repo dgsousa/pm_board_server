@@ -7,8 +7,6 @@ const promisify = require('promisify');
 const timeStarted = (new Date()).toString();
 const execSync = promisify(exec);
 
-console.log()
-
 
 const todoAdded = async (socketMessageHandler, database) => {
 	
