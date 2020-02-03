@@ -7,11 +7,10 @@ const { promisify } = require('util');
 const timeStarted = (new Date()).toString();
 
 
-const todoAdded = async (socketMessageHandler, database) => {
+const todoAdded = async (socketMessageHandler, database, gitCommit) => {
 	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
 		const val = snap.val();
-		const lastGitCommit = await execSync('git rev-parse HEAD');
 		return socketMessageHandler({
 			type: 'addTodo',
 			val: `
@@ -19,7 +18,7 @@ const todoAdded = async (socketMessageHandler, database) => {
 				ip: ${ip.address()}
 				version: ${version}
 				running since: ${timeStarted}
-				lastCommit: ${lastGitCommit.toString()}
+				commit: ${gitCommit}
 			`,
 			key,
 		});
