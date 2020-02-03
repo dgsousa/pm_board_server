@@ -1,10 +1,10 @@
 const socketServer = require("socket.io");
 const addRequestListeners = require('./actionListeners');
 const addDatabaseListeners = require('./databaseListeners');
-const execSync = require('child_process').execSync;
+// const execSync = require('child_process').execSync;
 
-const gitCommit = execSync('git rev-parse HEAD').toString();
-console.log(gitCommit);
+// const gitCommit = execSync('git rev-parse HEAD').toString();
+// console.log(gitCommit);
 
 const socketSetup = (server, database) => {
     const io = socketServer(server);

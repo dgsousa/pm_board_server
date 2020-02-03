@@ -1,9 +1,6 @@
 const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
-const exec = require('child_process').exec;
-const { promisify } = require('util');
-
 const timeStarted = (new Date()).toString();
 
 
