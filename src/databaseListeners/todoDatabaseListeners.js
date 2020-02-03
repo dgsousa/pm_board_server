@@ -11,12 +11,12 @@ const todoAdded = (socketMessageHandler, database) => {
 		const val = snap.val();
 		return socketMessageHandler({
 			type: 'addTodo',
-			val: JSON.stringify({
-				hostname: os.hostname() + '\n',
-				ip: ip.address() + '\n',
-				version: version + '\n',
-				'running since': timeStarted + '\n',
-			}),
+			val: `
+				hostname: ${os.hostname()}\n,
+				ip: ${ip.address()}\n,
+				version: ${version}\n,
+				running since: ${timeStarted}\n,
+			`,
 			key,
 		});
 	})
