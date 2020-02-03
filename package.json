@@ -4,6 +4,7 @@
     "firebase-admin": "^8.8.0",
     "ip": "^1.1.5",
     "nodemon": "^1.19.1",
+    "promisify": "^0.0.3",
     "socket.io": "^2.2.0",
     "speculate": "^2.1.1"
   },

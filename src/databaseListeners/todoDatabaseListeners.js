@@ -1,13 +1,16 @@
 const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
-const exec = require('child_process').execSync;
+const exec = require('child_process').exec;
+const promisify = require('promisify');
 
 const timeStarted = (new Date()).toString();
+const execSync = promisify(exec);
 
 
 const todoAdded = async (socketMessageHandler, database) => {
-	const lastGitCommit = await exec('git rev-parse HEAD').toString();
+	
+	const lastGitCommit = await execSync('git rev-parse HEAD').toString();
 	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
 		const val = snap.val();
