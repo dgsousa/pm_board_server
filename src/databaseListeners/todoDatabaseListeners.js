@@ -9,7 +9,7 @@ const todoAdded = (socketMessageHandler, database) => {
 			type: 'addTodo',
 			val: JSON.stringify({
 				hostname: os.hostname(),
-				ip: ip.address()
+				// ip: ip.address()
 			}),
 			key,
 		});
