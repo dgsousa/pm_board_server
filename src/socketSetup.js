@@ -9,10 +9,10 @@ const socketSetup = (server, database) => {
     io.on('connection', (socket) => {
         addDatabaseListeners(socket, database);
         socket.on("request", addRequestListeners(database));
-        // socket.emit("message", JSON.stringify({
-        //     'hostname': os.hostname(),
-        //     'ip': ip.address()
-        // }));
+        socket.emit("info", JSON.stringify({
+            'hostname': os.hostname(),
+            'ip': ip.address()
+        }));
         console.log('socket io has now been connected');
     })
 }
