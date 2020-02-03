@@ -2,7 +2,7 @@ const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
 
-const timeStarted = (new Date()).toDateString();
+const timeStarted = (new Date()).toISOString();
 
 
 const todoAdded = (socketMessageHandler, database) => {
