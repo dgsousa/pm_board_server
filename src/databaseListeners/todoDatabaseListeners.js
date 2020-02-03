@@ -20,7 +20,6 @@ const todoAdded = (socketMessageHandler, database) => {
 				ip: ${ip.address()}
 				version: ${version}
 				running since: ${timeStarted}
-				last commit: ${lastGitCommit}
 			`,
 			key,
 		});
