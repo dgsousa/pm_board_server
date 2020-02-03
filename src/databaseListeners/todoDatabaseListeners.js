@@ -16,7 +16,7 @@ const todoAdded = (socketMessageHandler, database) => {
 				hostname: os.hostname(),
 				ip: ip.address(),
 				version,
-				// timestarted,
+				timeStarted,
 			}),
 			key,
 		});
