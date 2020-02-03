@@ -2,9 +2,8 @@ const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
 
-// const timeStarted = (new Date()).toDateString();
+const timeStarted = (new Date()).toDateString();
 
-// console.log(timeStarted);
 
 const todoAdded = (socketMessageHandler, database) => {
 	return database.ref("/todos").on("child_added", snap => {
