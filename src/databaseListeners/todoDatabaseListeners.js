@@ -5,7 +5,7 @@ const execSync = require('child_process').execSync;
 
 const timeStarted = (new Date()).toString();
 
-// const lastGitCommit = execSync('git rev-parse HEAD').toString();
+const lastGitCommit = execSync('git rev-parse HEAD').toString();
 // console.log(lastGitCommit);
 
 
