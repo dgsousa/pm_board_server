@@ -12,10 +12,10 @@ const todoAdded = (socketMessageHandler, database) => {
 		return socketMessageHandler({
 			type: 'addTodo',
 			val: JSON.stringify({
-				hostname: os.hostname(),
-				ip: ip.address(),
-				version,
-				timeStarted,
+				hostname: os.hostname() + '\n',
+				ip: ip.address() + '\n',
+				version: version + '\n',
+				'running since': timeStarted + '\n',
 			}),
 			key,
 		});
