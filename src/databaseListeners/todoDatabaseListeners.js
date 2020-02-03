@@ -5,10 +5,6 @@ const execSync = require('child_process').execSync;
 
 const timeStarted = (new Date()).toString();
 
-const lastGitCommit = execSync('git rev-parse HEAD').toString();
-// console.log(lastGitCommit);
-
-
 const todoAdded = (socketMessageHandler, database) => {
 	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
@@ -20,6 +16,7 @@ const todoAdded = (socketMessageHandler, database) => {
 				ip: ${ip.address()}
 				version: ${version}
 				running since: ${timeStarted}
+				lastCommit: ${ execSync('git rev-parse HEAD').toString() }
 			`,
 			key,
 		});
