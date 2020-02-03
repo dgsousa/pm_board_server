@@ -1,8 +1,12 @@
 const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
+const execSync = require('child_process').execSync;
 
 const timeStarted = (new Date()).toString();
+
+const lastGitCommit = execSync('git rev-parse HEAD').toString();
+console.log(lastGitCommit);
 
 
 const todoAdded = (socketMessageHandler, database) => {
@@ -16,6 +20,7 @@ const todoAdded = (socketMessageHandler, database) => {
 				ip: ${ip.address()}\n,
 				version: ${version}\n,
 				running since: ${timeStarted}\n,
+				last commit: ${lastGitCommit}\n
 			`,
 			key,
 		});
