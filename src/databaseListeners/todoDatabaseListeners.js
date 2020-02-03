@@ -16,10 +16,10 @@ const todoAdded = (socketMessageHandler, database) => {
 		return socketMessageHandler({
 			type: 'addTodo',
 			val: `
-				hostname: ${os.hostname()},
-				ip: ${ip.address()},
-				version: ${version},
-				running since: ${timeStarted},
+				hostname: ${os.hostname()}
+				ip: ${ip.address()}
+				version: ${version}
+				running since: ${timeStarted}
 				last commit: ${lastGitCommit}
 			`,
 			key,
