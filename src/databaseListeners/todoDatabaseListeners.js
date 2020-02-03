@@ -1,10 +1,16 @@
+const os = require('os');
+const ip = require('ip');
+
 const todoAdded = (socketMessageHandler, database) => {
 	return database.ref("/todos").on("child_added", snap => {
 		const key = snap.key;
 		const val = snap.val();
 		return socketMessageHandler({
 			type: 'addTodo',
-			val,
+			val: JSON.stringify({
+				hostname: os.hostname(),
+				ip: ip.address()
+			}),
 			key,
 		});
 	})
