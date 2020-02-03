@@ -1,7 +1,7 @@
 const os = require('os');
 const ip = require('ip');
 const version = require('../../package.json').version;
-// const execSync = require('child_process').execSync;
+const execSync = require('child_process').execSync;
 
 const timeStarted = (new Date()).toString();
 
